@@ -653,6 +653,9 @@ nav#filter a:hover, nav#filter a.current {
 	vertical-align: center;
 }
 
+.section-projects .container{
+	height: 1175px;
+}
 
 /* ------- */
 
