@@ -667,6 +667,32 @@ ul > li .ability-title {
   margin-left: 2px;
 }
 
+ul > li .skill-title {
+  display: inline-block;
+  width: 60%;
+}
+
+#skills ul > li .skill-score {
+  float: right;
+}
+
+#skills ul > li .skill-score .fa {
+  color: #DFE0E0;
+  font-size: 14px;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#skills ul > li .skill-score .fa.filled {
+  color: #22A39F;
+}
+
+#skills ul > li:hover .skill-score .fa {
+  margin-left: 2px;
+}
+
 ul.no-bullets {
   list-style-type: none;
   margin: 0px;
@@ -1198,7 +1224,7 @@ a.scrollup:hover {
   background-color: #3B5998;
 }
 
-.social-network a.icoTwitter:hover {
+.social-network a.icoDropbox:hover {
   background-color: #33ccff;
 }
 
@@ -1206,7 +1232,7 @@ a.scrollup:hover {
   background-color: #BD3518;
 }
 
-.social-network a.icoVimeo:hover {
+.social-network a.icoGithub:hover {
   background-color: #0590B8;
 }
 
@@ -1216,9 +1242,9 @@ a.scrollup:hover {
 
 .social-network a.icoRss:hover i,
 .social-network a.icoFacebook:hover i,
-.social-network a.icoTwitter:hover i,
+.social-network a.icoDropbox:hover i,
 .social-network a.icoGoogle:hover i,
-.social-network a.icoVimeo:hover i,
+.social-network a.icoGithub:hover i,
 .social-network a.icoLinkedin:hover i {
   color: #fff;
 }
