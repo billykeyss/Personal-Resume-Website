@@ -585,12 +585,12 @@ About
 =========================== */
 
 .section-about h2{
-	font-size 48px;
+	font-size: 48px;
 }
 
 .section-about p{
 	vertical-align: middle;
-	font-size 24
+	font-size: 24
 }
 
 .member-photo {
@@ -710,7 +710,7 @@ nav#filter a {
     width: 100%;
 	left: 0;
 	top: 0;
-	color: rgba(220, 220, 220);
+	color: rgba(220, 220, 220, 0);
 }
 
 
