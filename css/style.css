@@ -511,6 +511,22 @@ section.featured.inner {
 	padding:0;
 }
 
+.logo-container{
+  height:100px;
+  width:auto;
+  text-align: center;
+}
+
+.logo-div-container{
+  margin-right:20px;
+  padding-right:20px;
+}
+
+.logo-text-container{
+  text-align: center;
+  display:none;
+}
+
 .tp-rightarrow.large {
 	margin-left: 0;
 }
