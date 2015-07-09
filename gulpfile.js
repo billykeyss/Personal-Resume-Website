@@ -34,11 +34,13 @@ gulp.task('removecss', function() {
     .pipe(gulp.dest('./dist/'));
 });
  
-gulp.task('serve', ['html', 'css'], function () {
+gulp.task('serve', ['html', 'css', 'compress'], function () {
   // Serve files from the root of this project
-  browserSync({
+  browserSync.init({
     server: {
       baseDir: "./"
     }
   });
 });
+
+gulp.task('default', ['html', 'css', 'compress']);
