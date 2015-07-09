@@ -3,6 +3,7 @@ var gulp = require('gulp');
 var htmlmin = require('gulp-htmlmin'); // minify html
 var cssmin = require('gulp-cssmin'); // minify css
 var rename = require('gulp-rename'); // rename file
+var purify = require('gulp-purifycss');
 var browserSync = require('browser-sync').create(); // run a local version with livereload (it will automatiucally reload the page when you change something on your code)
  
 // task to minify your html
@@ -18,6 +19,12 @@ gulp.task('css', function () {
     .pipe(cssmin()) // runs cssmin
     .pipe(rename({suffix: '.min'})) // add a sufix 'min' (main.css -> main.min.css)
     .pipe(gulp.dest('dist')); // where the files goes after the task is completed
+});
+
+gulp.task('removecss', function() {
+  return gulp.src('./public/app/example.css')
+    .pipe(purify(['./public/app/**/*.js', './public/**/*.html']))
+    .pipe(gulp.dest('./dist/'));
 });
  
 gulp.task('serve', ['html', 'css'], function () {
