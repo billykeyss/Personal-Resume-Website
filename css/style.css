@@ -9,7 +9,6 @@ h1{font-size:40px;line-height:30px}
 h2{font-size:32px;color:#22A395}
 h3{font-size:24px;color:#70B9B0}
 h4{font-size:18px}
-.text-bold{font-weight:900}
 a:hover{text-decoration:none}
 :focus{outline:0}
 .row{z-index:9999}
@@ -100,7 +99,6 @@ nav#filter li{display:inline-block;margin:0 0 0 5px}
 #contact-form input[type=submit]:active,#contact-form input[type=submit]:hover{background:#43413e!important}
 #contact-form textarea{padding-top:1em}
 textarea.form-control{-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
-.cform-not-valid-tip{color:#888;border:1px dotted #ad3729!important;width:100%!important;left:0!important;padding:.5em!important;font-family:'Open Sans',sans-serif;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px}
 ul.footer-menu,ul.social-network{display:inline;list-style:none;padding:0}
 .social-network a.icoDropbox:hover i,.social-network a.icoFacebook:hover i,.social-network a.icoGithub:hover i,.social-network a.icoGoogle:hover i,.social-network a.icoLinkedin:hover i,.social-network a.icoRss:hover i,a.scrollup{color:#fff}
 #map{height:500px}

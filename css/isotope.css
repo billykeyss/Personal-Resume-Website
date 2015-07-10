@@ -12,7 +12,6 @@
 .element *{position:absolute;margin:0}
 .element .name{left:.5em;bottom:1.6em;font-size:1.05em}
 .element .number{font-size:1.25em;font-weight:700;color:hsla(0,0%,0%,.5);right:.5em;top:.5em}
-.element.large{font-size:3em;width:350px;height:350px;z-index:100}
 .clickable .element:hover{cursor:pointer}
 .clickable .element:hover h3{text-shadow:0 0 10px #fff,0 0 10px #fff}
 .clickable .element:hover h2{color:#fff}
