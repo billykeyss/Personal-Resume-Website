@@ -30,12 +30,6 @@ gulp.task('imageMin', function () {
         .pipe(gulp.dest('dist/img'));
 });
 
-
-gulp.task('deploy', function () {
-    return gulp.src('dist/**/*')
-        .pipe(ghPages());
-});
-
 // task to minify your html
 gulp.task('html', function () {
     return gulp.src('index.html') // you should change the source to fit into you project
@@ -108,6 +102,11 @@ gulp.task('run', function () {
             baseDir: "./"
         }
     });
+});
+
+gulp.task('deploy', ['build'], function () {
+    return gulp.src('dist/**/*')
+        .pipe(ghPages());
 });
 
 gulp.task('build', ['html', 'css', 'compress', 'imageMin', 'fancycss']);
