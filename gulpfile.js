@@ -37,7 +37,7 @@ gulp.task('html', function () {
 });
 
 // taks to minify css
-gulp.task('css', function () {
+gulp.task('cssMain', function () {
     gulp.src('css/*.css') // you should change the source to fit into you project
         .pipe(cssmin()) // runs cssmin
         //.pipe(rename({suffix: '.min'})) // add a sufix 'min' (main.css -> main.min.css)
@@ -60,9 +60,7 @@ gulp.task('css', function () {
         .pipe(gulp.dest('dist/skin')); // where the files goes after the task is completed
 });
 
-
-
-gulp.task('compress', function () {
+gulp.task('compressMain', function () {
     return gulp.src('js/*.js')
         .pipe(uglify())
         .pipe(gulp.dest('dist/js'));
@@ -73,6 +71,14 @@ gulp.task('compress', function () {
         .pipe(uglify())
         .pipe(gulp.dest('dist/js/fancybox'));
 });
+
+gulp.task('copy', function () {
+    gulp.src('fonts/**/*')
+        .pipe(gulp.dest('dist/fonts'));
+    gulp.src('fonts/fontawesome')
+        .pipe(gulp.dest('dist/fonts/fontawesome'));
+});
+
 
 gulp.task('serve', ['html', 'css', 'compress', 'imageMin', 'fancycss', 'hint'], function () {
     // Serve files from the root of this project
@@ -92,6 +98,6 @@ gulp.task('run', function () {
     });
 });
 
-gulp.task('build', ['html', 'css', 'compress', 'imageMin', 'fancycss']);
+gulp.task('build', ['html', 'css', 'compress', 'imageMin', 'fancycss', 'cssMain', 'compressMain', 'copy']);
 
 gulp.task('default', ['build']);
