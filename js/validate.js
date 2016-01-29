@@ -1,1 +1,103 @@
-jQuery(document).ready(function(e){"use strict";e("form.contactForm").submit(function(){var t=e(this).find(".form-group"),a=!1,s=/^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;if(t.children("input").each(function(){var t=e(this),r=t.attr("data-rule");if(void 0!==r){var n=!1,i=r.indexOf(":",0);if(i>=0){var l=r.substr(i+1,r.length);r=r.substr(0,i)}else r=r.substr(i+1,r.length);switch(r){case"required":""===t.val()&&(a=n=!0);break;case"maxlen":t.val().length<parseInt(l)&&(a=n=!0);break;case"email":s.test(t.val())||(a=n=!0);break;case"checked":t.attr("checked")||(a=n=!0);break;case"regexp":l=new RegExp(l),l.test(t.val())||(a=n=!0)}t.next(".validation").html(n?void 0!==t.attr("data-msg")?t.attr("data-msg"):"wrong Input":"").show("blind")}}),t.children("textarea").each(function(){var t=e(this),s=t.attr("data-rule");if(void 0!==s){var r=!1,n=s.indexOf(":",0);if(n>=0){var i=s.substr(n+1,s.length);s=s.substr(0,n)}else s=s.substr(n+1,s.length);switch(s){case"required":""===t.val()&&(a=r=!0);break;case"maxlen":t.val().length<parseInt(i)&&(a=r=!0)}t.next(".validation").html(r?void 0!=t.attr("data-msg")?t.attr("data-msg"):"wrong Input":"").show("blind")}}),a)return!1;var r=e(this).serialize();return e.ajax({type:"POST",url:"contact/contact.php",data:r,success:function(t){e("#sendmessage").addClass("show"),e("#errormessage").ajaxComplete(function(a,s,r){"OK"==t?e("#sendmessage").addClass("show"):(e("#sendmessage").removeClass("show"),result=t),e(this).html(result)})}}),!1})});
+/*global jQuery:false */
+jQuery(document).ready(function($) {
+"use strict";
+
+	//Contact
+	$('form.contactForm').submit(function(){
+
+		var f = $(this).find('.form-group'), 
+		ferror = false, 
+		emailExp = /^[^\s()<>@,;:\/]+@\w[\w\.-]+\.[a-z]{2,}$/i;
+
+		f.children('input').each(function(){ // run all inputs
+
+			var i = $(this); // current input
+			var rule = i.attr('data-rule');
+
+			if( rule !== undefined ){
+			var ierror=false; // error flag for current input
+			var pos = rule.indexOf( ':', 0 );
+			if( pos >= 0 ){
+				var exp = rule.substr( pos+1, rule.length );
+				rule = rule.substr(0, pos);
+			}else{
+				rule = rule.substr( pos+1, rule.length );
+			}
+			
+			switch( rule ){
+				case 'required':
+				if( i.val()==='' ){ ferror=ierror=true; }
+				break;
+				
+				case 'maxlen':
+				if( i.val().length<parseInt(exp) ){ ferror=ierror=true; }
+				break;
+
+				case 'email':
+				if( !emailExp.test(i.val()) ){ ferror=ierror=true; }
+				break;
+
+				case 'checked':
+				if( !i.attr('checked') ){ ferror=ierror=true; }
+				break;
+				
+				case 'regexp':
+				exp = new RegExp(exp);
+				if( !exp.test(i.val()) ){ ferror=ierror=true; }
+				break;
+			}
+				i.next('.validation').html( ( ierror ? (i.attr('data-msg') !== undefined ? i.attr('data-msg') : 'wrong Input') : '' ) ).show('blind');
+			}
+		});
+		f.children('textarea').each(function(){ // run all inputs
+
+			var i = $(this); // current input
+			var rule = i.attr('data-rule');
+
+			if( rule !== undefined ){
+			var ierror=false; // error flag for current input
+			var pos = rule.indexOf( ':', 0 );
+			if( pos >= 0 ){
+				var exp = rule.substr( pos+1, rule.length );
+				rule = rule.substr(0, pos);
+			}else{
+				rule = rule.substr( pos+1, rule.length );
+			}
+			
+			switch( rule ){
+				case 'required':
+				if( i.val()==='' ){ ferror=ierror=true; }
+				break;
+				
+				case 'maxlen':
+				if( i.val().length<parseInt(exp) ){ ferror=ierror=true; }
+				break;
+			}
+				i.next('.validation').html( ( ierror ? (i.attr('data-msg') != undefined ? i.attr('data-msg') : 'wrong Input') : '' ) ).show('blind');
+			}
+		});
+		if( ferror ) return false; 
+			else var str = $(this).serialize();		
+				$.ajax({
+				type: "POST",
+				url: "contact/contact.php",
+				data: str,
+				success: function(msg){
+			$("#sendmessage").addClass("show");
+			$("#errormessage").ajaxComplete(function(event, request, settings){
+		
+			if(msg == 'OK')
+			{
+				$("#sendmessage").addClass("show");				
+			}
+			else
+			{
+				$("#sendmessage").removeClass("show");
+				result = msg;
+			}
+		
+			$(this).html(result);});}});
+				return false;
+	});
+
+});
