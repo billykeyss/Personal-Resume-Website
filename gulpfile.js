@@ -80,7 +80,7 @@ gulp.task('copy', function () {
 });
 
 
-gulp.task('serve', ['html', 'css', 'compress', 'imageMin', 'fancycss', 'hint'], function () {
+gulp.task('serve', function () {
     // Serve files from the root of this project
     browserSync.init({
         server: {
