@@ -5,6 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "gulp": "^3.9.0",
+    "gulp-rename": "^1.2.2",
     "imagemin-pngquant": "^4.2.0",
     "wiredep": "^2.2.2"
   },
