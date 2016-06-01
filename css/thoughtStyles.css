@@ -1,0 +1,25 @@
+h1 {
+    color: green;
+}
+
+body, html {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    background-color: black;
+    font-family: 'Open Sans', sans serif;
+}
+
+
+.container {
+    height: 100vh;
+}
+
+.jumbotron {
+    background-color:black;
+    color: white;
+}
+
+.center-align {
+    text-align:center;
+    margin-top: 150px;
+}

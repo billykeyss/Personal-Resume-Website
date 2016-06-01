@@ -5,10 +5,16 @@ var cssmin = require('gulp-cssmin'); // minify css
 var rename = require('gulp-rename'); // rename file
 var uglify = require('gulp-uglify'); //minify js
 var browserSync = require('browser-sync').create(); // run a local version with livereload (it will automatiucally reload the page when you change something on your code)
-var ghPages = require('gulp-gh-pages');
 var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var image = require('gulp-image');
+var deploy = require('gulp-deploy-git');
+var ghPages = require('gulp-gh-pages');
+
+gulp.task('deploy', function() {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('imageMin', function () {
     gulp.src('img/**/*')
@@ -20,11 +26,6 @@ gulp.task('hint', function () {
     return gulp.src('js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter(stylish));
-});
-
-gulp.task('deploy', ['build'], function () {
-    return gulp.src('dist/**/*')
-        .pipe(ghPages());
 });
 
 // task to minify your html
