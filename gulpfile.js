@@ -9,13 +9,11 @@ var jshint = require('gulp-jshint');
 var stylish = require('jshint-stylish');
 var image = require('gulp-image');
 var deploy = require('gulp-deploy-git');
+var ghPages = require('gulp-gh-pages');
 
 gulp.task('deploy', function() {
-  return gulp.src('dist/**/*')
-    .pipe(deploy({
-      repository: 'https://github.com/billykeyss/billykeyss.github.io.git',
-      branches:   ['master']
-    }));
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('imageMin', function () {

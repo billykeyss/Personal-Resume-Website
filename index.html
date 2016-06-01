@@ -21,7 +21,10 @@
     <link rel="stylesheet" href="css/isotope.css">
     <link rel="stylesheet" href="css/overwrite.css">
     <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="../node_modules/chart.js/dist/Chart.bundle.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <link href="http://fonts.googleapis.com/css?family=Raleway:400,500,100,200,300,600,800,900,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/style.css">
     <!-- skin -->
     <link rel="stylesheet" href="skin/default.css">
@@ -77,15 +80,15 @@
     <section id="section-about" class="section appear clearfix">
       <div class="container">
         <div class="row">
-          <div class="col-md-4" align="right">
+          <div class="col-md-4 about-me">
             <h3>About me</h3>
             <p>My name is Bill Huang...</p>
-            <p>I was raised in the wintery city of Calgary, Alberta. In 2013, I left my hometown for Waterloo, Ontario in order to pursue an undergraduate degree in Electrical Engineering. I have always possessed an interest for technology and this degree allows
+            <p>I was raised in the wintery city of Calgary, Alberta. In 2013, I left my hometown for Waterloo, Ontario in order to pursue an undergraduate degree in Computer Engineering. I have always possessed an interest for technology and this degree allows
               me to sate my curiosity.</p>
             <p>If you have any questions or concerns, I can be reached through email at any time.</p>
           </div>
-          <div class="col-md-4"><img class="member-photo" src="img/portfolio/personalPhoto1.jpg" alt="Bill Huang" width="350px" height="350px"></div>
-          <div class="col-md-3">
+          <div class="col-md-4 profile-picture"><img class="member-photo" src="img/portfolio/personalPhoto1.jpg" alt="Bill Huang" width="300px" height="300px"></div>
+          <div class="col-md-4 contact-section">
             <p>
               <strong>Name:</strong>
               <br>Yichen Bill Huang
@@ -100,16 +103,32 @@
             </p>
           </div>
         </div>
+        <div>
+          <!-- <div class="row">
+                 <canvas id="canvas"></canvas>
+          </div>
+          <div class="row align-center">
+            <button class="btn" id="randomizeData">Randomize Data</button>
+            <button class="btn" id="addDataset">Add Dataset</button>
+            <button class="btn" id="removeDataset">Remove Dataset</button>
+            <button class="btn" id="addData">Add Data</button>
+            <button class="btn" id="removeData">Remove Data</button>
+          </div> -->
+
+          <div id="canvas-holder" class="row">
+            <canvas id="chart-area" />
+          </div>
+        </div>
       </div>
     </section>
     <!-- services -->
-    <section id="section-skills" class="section appear clearfix pad-bot30 bg-white">
+    <section id="section-skills" class="section appear clearfix pad-bot30 bg-white animated bounceInUp">
       <div class="container">
         <div class="row mar-bot40">
           <div class="col-md-offset-3 col-md-6">
             <div class="section-header">
               <h2 class="section-heading animated" data-animation="bounceInUp">Abilities</h2>
-              <p>(Ordered based off personally familiarity)</p>
+              <p>(Ordered and ranked based off personally familiarity)</p>
             </div>
           </div>
         </div>
@@ -1210,7 +1229,7 @@
               <h2 class="section-heading animated" data-animation="bounceInUp">Work Experience</h2>
               <p>I am a third year Computer Engineering student at the University of Waterloo. The Co-op program that is implemented here gives me the opportunity to explore the potential of my degree. This page will be updated regularly as I become a part of more
                 projects and obtain exposure to different fields. In the next year, my goal is to become involved in a game development team and gain more experience with in the field of programming. I am most proficient in Java, JavaScript, Python, C#, HTML5, CSS3,
-                and XML.</p>
+                and am knowledgeable in many web based frameworks.</p>
             </div>
           </div>
         </div>
@@ -1542,7 +1561,7 @@
         <div class="row align-center copyright ">
           <div class="col-sm-12 " style="margin-top:20px ">
             <h2 style="color:#FFF ">Behind the Scenes</h2>
-            <p>This site was built with Bootstrap, jQuery, Modernizir, Isotope, and other API's</p>
+            <p>This site was built with Bootstrap, Node, Modernizir, Isotope, and other API's</p>
             <p>Gulp was used to create the web development environment</p>
             <p>All logos appearing on the site are the property of their respective owners.</p>
             <p>Created and maintained by Bill Huang ©2016</p>
