@@ -2,27 +2,693 @@ body, html {
     background: black;
     font-family: 'Open Sans', sans serif;
 }
-
-
 .container {
     height: 100vh;
 }
-
 .white {
-  background-color: white;
+    background-color: white;
 }
-
 .jumbotron {
-    background-color:transparent;
+    background-color: transparent;
     color: white;
 }
-
 .center-align {
-    text-align:center;
+    text-align: center;
     margin-top: 150px;
 }
-
 canvas {
-  background-color:transparent;
+    background-color: transparent;
+    display: block;
+}
+.container-scene-gradient {
+    height: 500px;
+    background: linear-gradient(black, #8aacb8, #C4ECFC);
+}
+.container-scene-width {
+    background-color: #C4ECFC;
+    /*background: linear-gradient(to right,#C4ECFC,#C4ECFC,#C4ECFC, black);*/
+    width: 100%;
+}
+.container-scene {
+    background-color: #C4ECFC;
+    position: relative;
+    width: 700px;
+    height: 100vh;
+}
+.container-scene * {
+    position: absolute;
+}
+.scene {
+    height: 525px;
+    width: 700px;
+}
+.cloud1 {
+    height: 20px;
+    width: 40px;
+    top: 130px;
+    background-color: #F6F3F2;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 50px -15px 0 15px #F6F3F2, 105px 0px 0 #F6F3F2;
+}
+.cloud2 {
+    height: 20px;
+    width: 40px;
+    top: 50px;
+    left: 386px;
+    background-color: #F6F3F2;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 60px -20px 0 20px #F6F3F2, 120px 0px 0 #F6F3F2, 180px -20px 0 20px #F6F3F2, 240px 0px 0 #F6F3F2;
+}
+.cloud3 {
+    height: 20px;
+    width: 40px;
+    top: 140px;
+    left: 400px;
+    background-color: #F6F3F2;
+    border-radius: 40px 40px 0 0;
+    box-shadow: 50px -15px 0 15px #F6F3F2;
+}
+.sun {
+    height: 110px;
+    width: 110px;
+    border-radius: 110px;
+    background-color: #FFFF66;
+    position: relative;
+    left: 140px;
+}
+.buildings {
+    left: 130px;
+    top: 30px;
+}
+.blue .triangle {
+    height: 0px;
+    width: 0px;
+    top: 120px;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #4E687E;
+}
+.blue .main {
+    background-color: #4E687E;
+    width: 100px;
+    top: 170px;
+    height: 110px;
+}
+.blue .chimney {
+    border-right: 25px solid #4E687E;
+    border-bottom: 20px solid #4E687E;
+    height: 20px;
+    top: 100px;
+    left: 120px;
+    z-index: 1;
+}
+.blue .tower {
+    width: 70px;
+    height: 105px;
+    background-color: #4E687E;
+    top: 60px;
+    left: 170px;
+    z-index: 1;
+}
+.white .tower {
+    width: 35px;
+    height: 95px;
+    background-color: #F6F3F2;
+    top: 70px;
+    left: 205px;
+    z-index: 1;
+}
+.white .triangle {
+    height: 0px;
+    width: 0px;
+    top: 160px;
+    left: 280px;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 40px solid #F6F3F2;
+}
+.white .main {
+    background-color: #F6F3F2;
+    width: 80px;
+    top: 200px;
+    left: 280px;
+    height: 80px;
+}
+.red .roof1 {
+    width: 120px;
+    height: 50px;
+    background-color: #E17564;
+    top: 120px;
+    left: 75px;
+    transform: skew(45deg)
+}
+.red .roof2 {
+    width: 100px;
+    height: 40px;
+    background-color: #E17564;
+    top: 160px;
+    left: 200px;
+    transform: skew(315deg);
+    z-index: 2;
+}
+.red .tower-roof {
+    border-left: 45px solid transparent;
+    border-bottom: 50px solid #E17564;
+    left: 160px;
+    top: 10px
+}
+.red .chimney-roof {
+    border-left: 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-bottom: 15px solid #E17564;
+    left: 118px;
+    top: 80px
+}
+.green .accent1 {
+    background-color: #61A1A1;
+    height: 5px;
+    width: 29px;
+    top: 95px;
+    left: 118px;
+    z-index: 1;
+}
+.green .accent2 {
+    background-color: #61A1A1;
+    height: 8px;
+    width: 76px;
+    top: 130px;
+    left: 167px;
+    z-index: 2;
+}
+.tower-window {
+    background-color: #F6F3F2;
+    height: 25px;
+    width: 13px;
+    top: 85px;
+    left: 181px;
+    border-radius: 30px 30px 0 0;
+    z-index: 2;
+    box-shadow: 35px 0 0 #E17564;
+}
+.window-sill {
+    background-color: #E17564;
+    height: 7px;
+    width: 20px;
+    top: 110px;
+    left: 177px;
+    z-index: 2;
+    box-shadow: 36px 0 0 #4E687E;
+}
+.windows {
+    background-color: #F6F3F2;
+    height: 30px;
+    width: 20px;
+    top: 160px;
+    left: 40px;
+    z-index: 1;
+    box-shadow: 270px 15px 0 -4px #E17564, 120px 55px 0 -3px #E17564, 190px 55px 0 -3px #F6F3F2, 213px 55px 0 -3px #E17564, 270px 55px 0 -3px #4E687E, 295px 55px 0 -3px #E17564, 70px 95px 0 -3px #E17564, 95px 95px 0 -3px #F6F3F2, 120px 95px 0 -3px #4E687E, 170px 95px 0 -3px #F6F3F2, 190px 95px 0 -3px #4E687E, 213px 95px 0 -3px #E17564, 250px 95px 0 -3px #E17564, 295px 95px 0 -3px #4E687E, 210px -20px 0 -5px #E17564, 218px -20px 0 -5px #EEBDAB, 82px -90px 0 -8px #E17564;
+}
+.land {
+    background-color: #61A1A1;
+    height: 65px;
+    width: 535px;
+    top: 310px;
+    left: 30px;
+    border-radius: 100px 100px 0 0;
+    z-index: 3;
+}
+.edge {
+    left: -25px;
+    top: 40px;
+    width: 50px;
+    height: 25px;
+    border-radius: 40px 40px 0 0;
+    background-color: #61A1A1;
+    box-shadow: 540px 0px 0 #61A1A1;
+}
+.top1 {
+    background-color: #61A1A1;
+    height: 10px;
+    width: 100px;
+    top: -10px;
+    left: 70px;
+    border-radius: 10px 10px 0 0;
+}
+.top2 {
+    background-color: #61A1A1;
+    height: 10px;
+    width: 50px;
+    top: -10px;
+    left: 185px;
+    border-radius: 10px 10px 0 0;
+}
+.top3 {
+    background-color: #61A1A1;
+    height: 10px;
+    width: 80px;
+    top: -10px;
+    left: 370px;
+    border-radius: 10px 10px 0 0;
+}
+.facade {
+    height: 80px;
+    width: 180px;
+    top: 200px;
+    left: 100px;
+    background-color: #EDBDAC;
+}
+.pink .tower-roof {
+    border-right: 45px solid transparent;
+    border-bottom: 50px solid #EDBDAC;
+    left: 205px;
+    top: 10px
+}
+.trees {
+    //visibility:hidden;
+    //z-index:2;
+}
+.foliage {
+    height: 80%;
+    width: 100%;
+    background-color: #61A1A1;
+    border-radius: 100%;
+}
+.trunk {
+    height: 65%;
+    width: 8%;
+    left: 46%;
+    top: 35%;
+    background-color: #F6F3F2;
+}
+.branch1 {
+    height: 25%;
+    width: 8%;
+    left: 36%;
+    top: 45%;
+    transform: rotate(310deg);
+    background-color: #F6F3F2;
+}
+.branch2 {
+    height: 20%;
+    width: 8%;
+    left: 54%;
+    top: 40%;
+    transform: rotate(45deg);
+    background-color: #F6F3F2;
+}
+.foliage {
+    height: 80%;
+    width: 100%;
+    background-color: #61A1A1;
+    border-radius: 100%;
+}
+.trunk {
+    height: 65%;
+    width: 8%;
+    left: 46%;
+    top: 35%;
+    background-color: #F6F3F2;
+}
+.branch1 {
+    height: 25%;
+    width: 8%;
+    left: 36%;
+    top: 45%;
+    transform: rotate(310deg);
+    background-color: #F6F3F2;
+}
+.tree-white .trunk, .tree-white .branch1, .tree-white .branch2 {
+    background-color: #61A1A1;
+}
+.tree-white .foliage {
+    background-color: #F6F3F2;
+}
+.tree1 {
+    width: 115px;
+    height: 140px;
+    left: 200px;
+    top: 60px;
+    z-index: 2;
+}
+.tree2 {
+    width: 100px;
+    height: 130px;
+    left: 285px;
+    top: 70px;
+    z-index: 2;
+}
+.tree3 {
+    width: 80px;
+    height: 100px;
+    left: 70px;
+    top: 100px;
+    z-index: -1!important;
+}
+.tree4 {
+    width: 80px;
+    height: 100px;
+    left: 460px;
+    top: 100px;
+    z-index: -1!important;
+}
+.tree-white {
+    width: 70px;
+    height: 80px;
+    left: 145px;
+    top: 120px;
+    z-index: 1;
+}
+.waves {
+    background-color: #F6F3F2;
+    width: 40px;
+    height: 20px;
+    border-radius: 0 0 40px 40px;
+    left: 120px;
+    box-shadow: 40px 0 0 #4E687E, 80px 0 0 #F6F3F2, 120px 0 0 #F6F3F2, 160px 0 0 #4E687E, 200px 0 0 #4E687E, 240px 0 0 #F6F3F2, 280px 0 0 #4E687E, 320px 0 0 #4E687E, 170px 40px 0 #4E687E, 210px 40px 0 #F6F3F2, 290px 40px 0 #F6F3F2, -20px 80px 0 #4E687E, 60px 80px 0 #4E687E, 123px 20px 0 #F6F3F2, 60px 80px 0 #4E687E, 100px 80px 0 #F6F3F2, 60px 80px 0 #4E687E, 100px 80px 0 #F6F3F2, 60px 80px 0 #4E687E, 100px 80px 0 #F6F3F2, 140px 80px 0 #4E687E, 160px 40px 0 #F6F3F2, 120px 30px 0 #4E687E;
+}
+.waves-container {
+    background-color: #4C4CA6;
+    top: 375px;
+    height: 100%;
+    width: 100vw;
+    z-index: 1;
+}
+#boat {
+    display: block;
+    background: #333;
+    width: 96px;
+    height: 42px;
+    position: absolute;
+    top: 500px;
+    right: 0px;
+    border-width: 3px 3px 9px 2px;
+    border-color: white;
+    border-style: solid;
+    border-top-left-radius: 32%;
+    border-bottom-left-radius: 69%;
+    border-bottom-right-radius: 13%;
+    transform: scaleX(-1) rotate(-12deg);
+    z-index: 3;
+}
+#boat:before {
+    content: "";
+    display: block;
+    background: transparent;
+    width: 96px;
+    height: 42px;
+    border-width: 2px 2px 6px 1px;
+    border-color: transparent;
+    border-style: solid;
+    border-top-left-radius: 30%;
+    border-bottom-left-radius: 66%;
+    border-bottom-right-radius: 13%;
+    box-shadow: rgba(0, 0, 0, 0.22) -9px 2px 1px 2px;
+}
+#boat:after {
+    content: "";
+    display: block;
+    width: 42px;
+    height: 2px;
+    background: #333;
+    box-shadow: rgba(255, 252, 255, 0.82) 1px 1px 0 1px inset, rgba(0, 0, 0, 0.22) 1px -9px 1px 0px;
+    transform: rotate(-72deg);
+    transform-origin: left;
+    position: absolute;
+    top: 13px;
+    left: -1px;
+}
+#raftHolder {
+    position: absolute;
+    margin: auto;
+    top: 180px;
+    bottom: 0;
+    right: -70px;
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+}
+#raft {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    -webkit-transform: rotate(-5deg);
+    transform: rotate(-5deg);
+    -webkit-animation-name: raftFloat;
+    animation-name: raftFloat;
+    -webkit-animation-duration: 3s;
+    animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+#raftBottom {
+    position: absolute;
+    margin: auto;
+    top: 34px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 0px;
+    height: 0px;
+    border-bottom: 20px solid #555;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+#raftBottom::before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    width: 0px;
+    height: 0px;
+    left: -40px;
+    border-top: 20px solid #2A2A2A;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+#raftBottom::after {
+    content: "";
+    position: absolute;
+    margin: auto;
+    width: 0px;
+    height: 0px;
+    border-top: 20px solid #888;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+}
+#raftTop {
+    position: absolute;
+    margin: auto;
+    top: -7px;
+    left: 30px;
+    right: 0;
+    bottom: 20px;
+    width: 0px;
+    height: 0px;
+    border-bottom: 60px solid #fff;
+    border-right: 30px solid transparent;
+}
+#raftTop::before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    width: 0px;
+    height: 0px;
+    left: -30px;
+    border-bottom: 60px solid #333;
+    border-left: 30px solid transparent;
+}
+#raftRipples {
+    position: absolute;
+    margin: auto;
+    top: 249px;
+    bottom: 0;
+    right: -49px;
+    width: 200px;
+    height: 50px;
+    transform: rotate(-12);
+    z-index: 2
+}
+#sailboat {
+    position: absolute;
+    margin: auto;
+    top: 249px;
+    bottom: 0;
+    right: -49px;
+    width: 50px;
+    height: 50px;
+    transform: rotate(-12);
+    z-index: 2
+}
+.sailboat {
+    height: 100px;
+}
+.raftRipple {
+    position: absolute;
+    margin: auto;
+    width: 0px;
+    height: 4px;
+    border-radius: 2px;
+    opacity: .1;
+    background: #fff;
+    -webkit-animation-name: raftRippleMove;
+    animation-name: raftRippleMove;
+    -webkit-animation-duration: 2.5s;
+    animation-duration: 2.5s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+}
+.raftRipple:nth-child(1) {
+    top: 30px;
+    left: 120px;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+.raftRipple:nth-child(2) {
+    top: 24px;
+    left: 120px;
+    -webkit-animation-delay: 1.5s;
+    animation-delay: 1.5s;
+}
+@-webkit-keyframes raftRippleMove {
+    0% {
+        width: 0px;
+    }
+    70% {
+        width: 50px;
+    }
+    100% {
+        -webkit-transform: translate(-100px);
+        transform: translate(-100px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+@keyframes raftRippleMove {
+    0% {
+        width: 0px;
+    }
+    70% {
+        width: 50px;
+    }
+    100% {
+        -webkit-transform: translate(-100px);
+        transform: translate(-100px);
+        width: 0px;
+        opacity: 0;
+    }
+}
+@-webkit-keyframes raftFloat {
+    0% {
+        -webkit-transform: rotate(3deg) translate(10px, -2px);
+        transform: rotate(3deg) translate(10px, -2px);
+    }
+    100% {
+        -webkit-transform: rotate(-3deg) translate(-5px);
+        transform: rotate(-3deg) translate(-5px);
+    }
+}
+@keyframes raftFloat {
+    0% {
+        -webkit-transform: rotate(3deg) translate(10px, -2px);
+        transform: rotate(3deg) translate(10px, -2px);
+    }
+    100% {
+        -webkit-transform: rotate(-3deg) translate(-5px);
+        transform: rotate(-3deg) translate(-5px);
+    }
+}
+
+@-webkit-keyframes wave {
+  0%  { -webkit-transform: translate3d(0, 10px, 0) rotate(45deg); }
+  50% { -webkit-transform: translate3d(0, -2px, 0) rotate(45deg); }
+  100%{ -webkit-transform: translate3d(0, 10px, 0) rotate(45deg); }
+}
+@-webkit-keyframes boat {
+  0%  { -webkit-transform: translate3d(0, 0, 0); }
+  50% { -webkit-transform: translate3d(0, 4px, 0); }
+  100%{ -webkit-transform: translate3d(0, 0, 0); }
+}
+.boat-1 {
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  top: 125%;
+  left: 50%;
+  z-index: 999;
+  margin: -30px 0 0 -30px;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0) rotate(0deg);
+  -webkit-transition: -webkit-transform .2s ease;
+}
+  .boat-obj {
+    width: 60px;
+    height: 60px;
+    background: url(http://plugin.walfo.jp/sails/boat.png) no-repeat 0 0;
+    background-size: 60px 60px;
+    -webkit-animation: boat 3s ease infinite;
+  }
+.wave {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  overflow: hidden;
+  text-align: center;
+}
+.wave::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 100%;
+  width: 50%;
+  height: 50%;
+  margin: 0 0 0 -25%;
+  background: rgba(255,255,255,.75);
+  border-radius: 2px;
+  -webkit-transform: transform3d(0, 10px, 0) rotate(45deg);
+  -webkit-animation: wave 3s ease infinite 0;
+}
+.wave-2::after { -webkit-animation: wave 3s ease infinite .2s; }
+.wave-3::after { -webkit-animation: wave 3s ease infinite .3s; }
+.wave-4::after { -webkit-animation: wave 3s ease infinite .4s; }
+.wave-5::after { -webkit-animation: wave 3s ease infinite .5s; }
+.wave-6::after { -webkit-animation: wave 3s ease infinite .6s; }
+.wave-7::after { -webkit-animation: wave 3s ease infinite .7s; }
+.wave-8::after { -webkit-animation: wave 3s ease infinite .8s; }
+.wave-9::after { -webkit-animation: wave 3s ease infinite .9s; }
+.wave-10::after { -webkit-animation: wave 3s ease infinite 1.0s; }
+.wave-11::after { -webkit-animation: wave 3s ease infinite 1.1s; }
+.wave-12::after { -webkit-animation: wave 3s ease infinite 1.2s; }
+.wave-13::after { -webkit-animation: wave 3s ease infinite 1.3s; }
+.wave-14::after { -webkit-animation: wave 3s ease infinite 1.4s; }
+.wave-15::after { -webkit-animation: wave 3s ease infinite 1.5s; }
+.wave-16::after { -webkit-animation: wave 3s ease infinite 1.6s; }
+.wave-17::after { -webkit-animation: wave 3s ease infinite 1.7s; }
+.wave-18::after { -webkit-animation: wave 3s ease infinite 1.8s; }
+.wave-19::after { -webkit-animation: wave 3s ease infinite 1.9s; }
+.wave-20::after { -webkit-animation: wave 3s ease infinite 2.0s; }
+
+.key-console {
   display: block;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 999;
+  background: rgba(0,0,0,.5);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 11px;
+  line-height: 50px;
+  text-align: center;
 }

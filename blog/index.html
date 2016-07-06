@@ -1,88 +1,170 @@
 <!doctype html>
-
 <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Useless Thoughts</title>
+        <meta name="description" content="Useless Thoughts">
+        <meta name="author" content="SitePoint">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+        <script>
+            $(".menu-icon").click(function() {
+                $(this).toggleClass("active");
+                $(".overlay-menu").toggleClass("open");
+            });
+        </script>
+        <script src="../threejs/build/three.js"></script>
+        <script src="../threejs/examples/js/renderers/Projector.js"></script>
+        <script src="../threejs/examples/js/renderers/CanvasRenderer.js"></script>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="/css/thoughtStyles.css">
+        <link rel="stylesheet" href="/css/stars.css">
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!-- <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">CASTY</a>
+              </div>
 
-<head>
-    <meta charset="utf-8">
-
-    <title>Useless Thoughts</title>
-    <meta name="description" content="Useless Thoughts">
-    <meta name="author" content="SitePoint">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-
-    <script>
-        $(".menu-icon").click(function() {
-            $(this).toggleClass("active");
-            $(".overlay-menu").toggleClass("open");
-        });
-     </script>
-
-    <script src="../threejs/build/three.js"></script>
-    <script src="../threejs/examples/js/renderers/Projector.js"></script>
-    <script src="../threejs/examples/js/renderers/CanvasRenderer.js"></script>
-
-
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/css/thoughtStyles.css">
-    <link rel="stylesheet" href="/css/stars.css">
-    <!--[if lt IE 9]>
-    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
-
-<body>
-
-
-    <!-- <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">CASTY</a>
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a href="https://github.com/billykeyss" target="_blank">GitHub</a></li>
+                  <li><a href="https://yichenhuang.me" target="_blank">Check out the author</a></li>
+                </ul>
+              </div>
+            </div>
+            </nav> -->
+        <div id='stars'></div>
+        <div id='stars2'></div>
+        <div id='stars3'></div>
+        <div id='stars4'></div>
+        <!-- <div class="container"> -->
+        <div class="jumbotron center-align">
+            <h1>
+            Personal Playground
+            <h1>
         </div>
-
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/billykeyss" target="_blank">GitHub</a></li>
-            <li><a href="https://yichenhuang.me" target="_blank">Check out the author</a></li>
-          </ul>
+        <!-- </div> -->
+        <script src="../js/3.js"></script>
+        <script src="../js/background.js"></script>
+        <div id="sphere"></div>
+        <canvas id="canvas"></canvas>
+        <div class="container-scene-gradient">
         </div>
-      </div>
-    </nav> -->
-
-    <div id='stars'></div>
-    <div id='stars2'></div>
-    <div id='stars3'></div>
-    <div id='stars4'></div>
-
-    <!-- <div class="container"> -->
-
-      <div class="jumbotron center-align">
-        <h1> Personal Playground <h1>
-      </div>
-
-
-    <!-- </div> -->
-
-    <script src="../js/3.js"></script>
-    <script src="../js/background.js"></script>
-
-    <div id="sphere"></div>
-
-
-    <canvas id="canvas"></canvas>
-
-
-
-
-		<script>
-
-		</script>
-
-</body>
-
+        <div class="container-scene-width">
+            <div class="container-scene">
+                <div class="scene">
+                    <div class="sun"></div>
+                    <div class="cloud1"></div>
+                    <div class="cloud2"></div>
+                    <div class="cloud3"></div>
+                    <div class="buildings">
+                        <div class="windows"></div>
+                        <div class="tower-windows">
+                            <div class="tower-window"></div>
+                            <div class ="window-sill"></div>
+                        </div>
+                        <div class="blue">
+                            <div class = "triangle"></div>
+                            <div class = "main"></div>
+                            <div class = "chimney"></div>
+                            <div class = "tower"></div>
+                        </div>
+                        <div class="green">
+                            <div class = "accent1"></div>
+                            <div class = "accent2"></div>
+                        </div>
+                        <div class="red">
+                            <div class = "roof1"></div>
+                            <div class = "main"></div>
+                            <div class = "chimney-roof"></div>
+                            <div class = "tower-roof"></div>
+                            <div class = "roof2"></div>
+                        </div>
+                        <div class="white">
+                            <div class="tower"></div>
+                            <div class="triangle"></div>
+                            <div class="main"></div>
+                        </div>
+                        <div class="pink">
+                            <div class="facade"></div>
+                            <div class="tower-roof"></div>
+                        </div>
+                    </div>
+                    <div class="land">
+                        <div class="tops">
+                            <div class="top1"></div>
+                            <div class="top2"></div>
+                            <div class="top3"></div>
+                        </div>
+                        <div class="edge"></div>
+                    </div>
+                    <div class="trees">
+                        <div class="tree1">
+                            <div class="foliage"></div>
+                            <div class="trunk"></div>
+                            <div class="branch1"></div>
+                            <div class="branch2"></div>
+                        </div>
+                        <div class="tree2">
+                            <div class="foliage"></div>
+                            <div class="trunk"></div>
+                            <div class="branch1"></div>
+                            <div class="branch2"></div>
+                        </div>
+                        <div class="tree3">
+                            <div class="foliage"></div>
+                            <div class="trunk"></div>
+                            <div class="branch1"></div>
+                            <div class="branch2"></div>
+                        </div>
+                        <div class="tree4">
+                            <div class="foliage"></div>
+                            <div class="trunk"></div>
+                            <div class="branch1"></div>
+                            <div class="branch2"></div>
+                        </div>
+                        <div class="tree-white">
+                            <div class="foliage"></div>
+                            <div class="trunk"></div>
+                            <div class="branch1"></div>
+                            <div class="branch2"></div>
+                        </div>
+                    </div>
+                    <div class="waves-container">
+                        <div class="waves"></div>
+                    </div>
+                    <div id="boat"></div>
+                    <div id='raftHolder'>
+                        <div id='raft'>
+                            <div id='raftTop'></div>
+                            <div id='raftBottom'></div>
+                        </div>
+                    </div>
+                    <div id='raftRipples'>
+                        <div class='raftRipple'></div>
+                        <div class='raftRipple'></div>
+                    </div>
+                    <div id='raftReflection'>
+                        <div class='raftReflectionSegment'></div>
+                        <div class='raftReflectionSegment'></div>
+                        <div class='raftReflectionSegment'></div>
+                    </div>
+                    <div id='sailboat'>
+                          <img class='sailboat' src="http://www.mediafire.com/convkey/cb7c/lw9asjrzvia7ov1zg.jpg"/>
+                    </div>
+                    <div class="boat-1"><div class="boat-obj"></div></div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <script></script>
+    </body>
 </html>
