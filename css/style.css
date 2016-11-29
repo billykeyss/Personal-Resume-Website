@@ -1,3 +1,7 @@
+/*
+* === GENERAL STYLES ===
+*/
+
 @import url(http://fonts.googleapis.com/css?family=Lato:400,300,700,900);
 body,
 h5 {
@@ -126,16 +130,6 @@ a:hover {
     float: left
 }
 
-#abilities ul>li .ability-score,
-#skills ul>li .skill-score,
-.experiences1 a,
-.experiences2 a,
-.experiences3 a,
-.float-right,
-.navbar-nav {
-    float: right
-}
-
 .align-left {
     text-align: left
 }
@@ -164,11 +158,9 @@ a:hover {
     margin-bottom: 40px
 }
 
-section.section {
-    margin: 0;
-    padding: 80px 0 60px
-}
-
+/*
+* === TITLE SECTION ===
+*/
 .nav li,
 .navbar,
 .navbar .navbar-collapse,
@@ -259,10 +251,6 @@ section.featured.inner {
     padding: 150px 0 50px
 }
 
-.about-me {
-    text-align: right;
-}
-
 .vertical-center {
     min-height: 100%;
     min-height: 100vh;
@@ -282,6 +270,56 @@ section.featured.inner {
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center
+}
+
+ul.no-bullets {
+    list-style-type: none;
+    margin: 0;
+    padding: 0
+}
+
+
+/*
+* === ABOUT ME SECTION ===
+*/
+.section-about h2 {
+    font-size: 48px
+}
+
+.section-about p {
+    vertical-align: middle;
+    font-size: 24
+}
+
+.about-me {
+    text-align: right;
+}
+
+.profile-picture {
+    max-width:100%;
+    max-height:100%;
+    box-sizing: border-box;
+    border-radius: 50%;
+    margin: 0 20px 20px 0
+    display:block;
+    margin: auto;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%
+}
+
+
+/*
+* === ABILITIES SECTION ===
+*/
+
+#abilities ul>li .ability-score,
+#skills ul>li .skill-score,
+.experiences1 a,
+.experiences2 a,
+.experiences3 a,
+.float-right,
+.navbar-nav {
+    float: right
 }
 
 #abilities ul>li:hover .ability-score .fa,
@@ -342,41 +380,12 @@ ul>li .skill-title {
     color: #22A39F
 }
 
-ul.no-bullets {
-    list-style-type: none;
+/*
+* === EXPERIENCE SECTION ===
+*/
+section.section {
     margin: 0;
-    padding: 0
-}
-
-.section-about h2 {
-    font-size: 48px
-}
-
-.section-about p {
-    vertical-align: middle;
-    font-size: 24
-}
-
-.member-photo {
-    box-sizing: border-box;
-    border-radius: 50%;
-    margin: 0 20px 20px 0
-    display:block;
-    margin: auto;
-}
-
-.member-photo,
-.member-photo img {
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%
-}
-
-.member-photo img {
-    border-radius: 50%
-}
-
-.team-detail h4 {
-    font-weight: 700
+    padding: 80px 0 60px
 }
 
 .experiences1,
@@ -385,19 +394,9 @@ ul.no-bullets {
     text-align: left
 }
 
-nav#filter a {
-    background-color: #FFF;
-    color: #555;
-    padding: 4px 12px;
-    line-height: 20px;
-    text-decoration: none
-}
-
-nav#filter a.current,
-nav#filter a:hover {
-    background-color: #44BCDD;
-    color: #fff
-}
+/*
+* === PROJECTS SECTION ===
+*/
 
 .section-projects p,
 h5 {
@@ -418,6 +417,20 @@ h5 {
 
 #portfolio article p {
     margin-bottom: 1.45em
+}
+
+nav#filter a {
+    background-color: #FFF;
+    color: #555;
+    padding: 4px 12px;
+    line-height: 20px;
+    text-decoration: none
+}
+
+nav#filter a.current,
+nav#filter a:hover {
+    background-color: #44BCDD;
+    color: #fff
 }
 
 nav#filter {
@@ -502,6 +515,76 @@ nav#filter li {
     font-size: 12px
 }
 
+
+
+/*
+* === RESPONSIVE ===
+*/
+@media (min-width:959px) and (max-width:1199px) {
+    .navbar-nav {
+        margin-top: 20px
+    }
+    .about-me .contact-section .profile-picture{
+        text-align: center !important;
+    }
+}
+
+@media only screen and (min-device-width:979px) and (max-device-width:1024px) {
+    .navbar-nav {
+        margin-top: 20px
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:959px) {
+    .navbar-nav {
+        margin-top: 20px
+    }
+}
+
+@media (max-width:767px) {
+    .navbar.navbar-fixed-top {
+        background-color: rgba(0, 0, 0, 1)
+    }
+    .navbar .navbar-collapse ul.nav {
+        background-color: #444;
+        width: 100%;
+        float: none;
+        margin: 0;
+        padding: 0
+    }
+    .navbar .navbar-collapse ul.nav li {
+        border-bottom: 1px solid #666
+    }
+    section.featured {
+        padding-top: 80px
+    }
+}
+
+@media only screen and (max-width: 991px) {
+  .about-me, .contact-section, .profile-picture{
+      text-align: center !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .cl-effect-1 a::after,
 .cl-effect-1 a::before {
     display: inline-block;
@@ -538,104 +621,17 @@ nav#filter li {
     text-decoration: none
 }
 
-.validation {
-    display: none;
-    margin: 0 0 20px;
-    font-weight: 400;
-    font-size: 13px
-}
 
-#sendmessage {
-    border: 1px solid #fff;
-    display: none;
-    text-align: center;
-    padding: 15px 12px;
-    margin: 10px 0 30px;
-    font-weight: 600
-}
 
-#sendmessage.show,
-.show {
-    display: block
-}
-
-#contact-form {
-    position: relative;
-    z-index: 999
-}
-
-#contact-form input[type=email],
-#contact-form input[type=text],
-.contactForm textarea {
-    width: 100%;
-    background: rgba(227, 231, 228, 1);
-    font-family: 'Open Sans', sans serif;
-    border: 0;
-    font-size: 14px;
-    text-align: left;
-    vertical-align: middle;
-    padding: 0 10px
-}
+/*
+* === FOOTER SECTION ===
+*/
 
 .social-circle li a,
 .social-circle li i,
 a.scrollup,
 section#footer .copyright {
     text-align: center
-}
-
-#contact-form input[type=email]:focus,
-#contact-form input[type=text]:focus,
-.contactForm textarea:focus {
-    background: rgba(101, 106, 100, 1);
-    color: #eff1ef;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-    transition: background .25 ease-in;
-    -moz-transition: background .25 ease-in;
-    -webkit-transition: background .25 ease-in
-}
-
-#contact-form input[type=email],
-#contact-form input[type=text] {
-    height: 60px;
-    margin-bottom: 30px
-}
-
-#contact-form input[type=submit] {
-    color: #fff;
-    width: 185px;
-    height: 60px;
-    text-shadow: none;
-    font-size: 14px;
-    padding: .5em;
-    letter-spacing: .05em;
-    margin: 0 0 20px;
-    display: block;
-    border: 0;
-    text-transform: none;
-    border-radius: 0;
-    -moz-border-radius: 0;
-    -webkit-border-radius: 0;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none
-}
-
-#contact-form input[type=submit]:active,
-#contact-form input[type=submit]:hover {
-    background: #43413e!important
-}
-
-#contact-form textarea {
-    padding-top: 1em
-}
-
-textarea.form-control {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0
 }
 
 ul.footer-menu,
@@ -648,23 +644,9 @@ ul.social-network {
 .social-network a.icoDropbox:hover i,
 .social-network a.icoFacebook:hover i,
 .social-network a.icoGithub:hover i,
-.social-network a.icoGoogle:hover i,
 .social-network a.icoLinkedin:hover i,
-.social-network a.icoRss:hover i,
 a.scrollup {
     color: #fff
-}
-
-#map {
-    height: 500px
-}
-
-#clients img {
-    opacity: .7
-}
-
-#clients img:hover {
-    opacity: 1
 }
 
 section#footer {
@@ -708,10 +690,6 @@ a.scrollup:hover {
     color: #fff
 }
 
-.social-network a.icoRss:hover {
-    background-color: #F56505
-}
-
 .social-network a.icoFacebook:hover {
     background-color: #3B5998
 }
@@ -720,20 +698,12 @@ a.scrollup:hover {
     background-color: #3cf
 }
 
-.social-network a.icoGoogle:hover {
-    background-color: #BD3518
-}
-
 .social-network a.icoGithub:hover {
     background-color: #0590B8
 }
 
 .social-network a.icoLinkedin:hover {
     background-color: #007bb7
-}
-
-a.socialIcon:hover {
-    color: #44BCDD
 }
 
 .btn-cta:hover {
@@ -776,55 +746,4 @@ a.socialIcon:hover {
     -o-transition: all .8s;
     -ms-transition: all .8s;
     transition: all .8s
-}
-
-.btn {
-    border: 0
-}
-
-@media (min-width:959px) and (max-width:1199px) {
-    .navbar-nav {
-        margin-top: 20px
-    }
-    .about-me .contact-section .profile-picture{
-        text-align: center !important;
-    }
-}
-
-
-@media only screen and (min-device-width:979px) and (max-device-width:1024px) {
-    .navbar-nav {
-        margin-top: 20px
-    }
-}
-
-@media only screen and (min-width:768px) and (max-width:959px) {
-    .navbar-nav {
-        margin-top: 20px
-    }
-}
-
-@media (max-width:767px) {
-    .navbar.navbar-fixed-top {
-        background-color: rgba(0, 0, 0, 1)
-    }
-    .navbar .navbar-collapse ul.nav {
-        background-color: #444;
-        width: 100%;
-        float: none;
-        margin: 0;
-        padding: 0
-    }
-    .navbar .navbar-collapse ul.nav li {
-        border-bottom: 1px solid #666
-    }
-    section.featured {
-        padding-top: 80px
-    }
-}
-
-@media only screen and (max-width: 991px) {
-  .about-me, .contact-section, .profile-picture{
-      text-align: center !important;
-  }
 }

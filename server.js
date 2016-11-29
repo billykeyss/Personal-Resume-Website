@@ -10,6 +10,16 @@ var port    =   process.env.PORT || 8080;
 
 // ROUTES
 // ==============================================
+var fs = require('fs');
+
+var obj;
+fs.readFile('data.json', 'utf8', function (err, data) {
+    if (err) {
+      throw err;
+    };
+    obj = JSON.parse(data);
+    console.log(obj)
+});
 
 app.set('view engine', 'html');
 app.engine('html', require('ejs').renderFile);
@@ -18,6 +28,7 @@ app.engine('html', require('ejs').renderFile);
 app.get('/', function(req, res) {
     // res.send("Test");
     app.use(express.static(path.join(__dirname)));
+    res.render(path.join(__dirname + '/index.html'), res.json(obj));
     res.render(path.join(__dirname + '/index.html'));
 });
 
